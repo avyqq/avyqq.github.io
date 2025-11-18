@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATLAMAT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            opacity: 0;
+            animation: fadeInPage 0.6s ease-out forwards;
+            animation-delay: 0.05s;
+        }
+        .page-leaving {
+            animation: fadeOutPage 0.45s ease-in-out forwards;
+        }
+        @keyframes fadeInPage  { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOutPage { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-15px); } }
+        body { background-color: var(--main-bg); }
+    </style>
+</head>
+<body class="light-mode">
+
+    <header class="header">
+        <div class="container header-flex">
+            <h1 class="logo">Portfolio</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Portofolio</a></li>
+                    <li><a href="about.html">Informasi Diri</a></li>
+                    <li><a href="qualifications.html">Kelayakan</a></li>
+                    <li><a href="skills.html">Kemahiran</a></li>
+                    <li><a href="goals.html">Matlamat</a></li>
+                    <li><a href="interests.html">Minat</a></li>
+                </ul>
+            </nav>
+            <button id="mode-toggle" class="mode-switch">Moon</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="goals" class="section page-5">
+            <div class="container">
+                <h3>05. Matlamat & Visi Masa Depan</h3>
+                <div class="goal-list">
+                    <h4>Matlamat Jangka Pendek (1–3 Tahun)</h4>
+                    <p>Mencapai gelaran sebagai seorang <strong>Senior Security Analyst</strong> di Sabah Electric City dan berfokus kepada keselamatan siber serta membangunkan sistem yang dapat membantu menghindari serangan siber pada tahap tinggi.</p>
+
+                    <h4>Visi Jangka Panjang (5+ Tahun)</h4>
+                    <p>Menjadi individu yang memberi impak besar dalam bidang <strong>Cybersecurity</strong>, diiktiraf di peringkat nasional dan antarabangsa, serta mendapat pelbagai penghargaan atas sumbangan dalam melindungi infrastruktur kritikal Malaysia.</p>
+
+                    <h4>Impian Terbesar</h4>
+                    <p>Mewujudkan pusat kecemerlangan cybersecurity di Sabah yang melatih generasi muda tempatan untuk menjadi pakar keselamatan siber bertaraf dunia.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                link.addEventListener("click", function (e) {
+                    const href = this.getAttribute("href");
+                    const currentPage = window.location.pathname.split("/").pop();
+                    if (href !== currentPage && href.endsWith(".html")) {
+                        e.preventDefault();
+                        document.body.classList.add("page-leaving");
+                        setTimeout(() => { window.location.href = href; }, 420);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

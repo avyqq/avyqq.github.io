@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEMAHIRAN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            opacity: 0;
+            animation: fadeInPage 0.6s ease-out forwards;
+            animation-delay: 0.05s;
+        }
+        .page-leaving {
+            animation: fadeOutPage 0.45s ease-in-out forwards;
+        }
+        @keyframes fadeInPage  { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOutPage { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-15px); } }
+        body { background-color: var(--main-bg); }
+    </style>
+</head>
+<body class="light-mode">
+
+    <header class="header">
+        <div class="container header-flex">
+            <h1 class="logo">Portfolio</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Portofolio</a></li>
+                    <li><a href="about.html">Informasi Diri</a></li>
+                    <li><a href="qualifications.html">Kelayakan</a></li>
+                    <li><a href="skills.html">Kemahiran</a></li>
+                    <li><a href="goals.html">Matlamat</a></li>
+                    <li><a href="interests.html">Minat</a></li>
+                </ul>
+            </nav>
+            <button id="mode-toggle" class="mode-switch">Moon</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="skills" class="section page-4 dark-bg">
+            <div class="container">
+                <h3>04. Kemahiran Teknis & Inti</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h4>Penyelenggeraan</h4>
+                        <ul>
+                            <li>Hardware Skills</li>
+                            <li>Networking Skills</li>
+                            <li>TroubleShooting Skills</li>
+                            <li>Safety Skills</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Programming</h4>
+                        <ul>
+                            <li>Basic Python & HTML</li>
+                            <li>Expert in PHP & JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Soft Skills</h4>
+                        <ul>
+                            <li>Communication Skills</li>
+                            <li>Problem-Solving Skills</li>
+                            <li>Teamwork & Collaboration</li>
+                            <li>Time Management</li>
+                            <li>Adaptability</li>
+                            <li>Critical Thinking</li>
+                            <li>Attention to Detail</li>
+                            <li>Self-Learning / Fast Learner</li>
+                            <li>Customer Service Skills</li>
+                            <li>Work Ethics & Responsibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                link.addEventListener("click", function (e) {
+                    const href = this.getAttribute("href");
+                    const currentPage = window.location.pathname.split("/").pop();
+                    if (href !== currentPage && href.endsWith(".html")) {
+                        e.preventDefault();
+                        document.body.classList.add("page-leaving");
+                        setTimeout(() => { window.location.href = href; }, 420);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

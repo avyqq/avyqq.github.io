@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KELAYAKAN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            opacity: 0;
+            animation: fadeInPage 0.6s ease-out forwards;
+            animation-delay: 0.05s;
+        }
+        .page-leaving {
+            animation: fadeOutPage 0.45s ease-in-out forwards;
+        }
+        @keyframes fadeInPage  { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOutPage { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-15px); } }
+        body { background-color: var(--main-bg); }
+    </style>
+</head>
+<body class="light-mode">
+
+    <header class="header">
+        <div class="container header-flex">
+            <h1 class="logo">Portfolio</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Portofolio</a></li>
+                    <li><a href="about.html">Informasi Diri</a></li>
+                    <li><a href="qualifications.html">Kelayakan</a></li>
+                    <li><a href="skills.html">Kemahiran</a></li>
+                    <li><a href="goals.html">Matlamat</a></li>
+                    <li><a href="interests.html">Minat</a></li>
+                </ul>
+            </nav>
+            <button id="mode-toggle" class="mode-switch">Moon</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="qualifications" class="section page-3">
+            <div class="container">
+                <h3>03. Sijil & Pengalaman</h3>
+                <div class="qualifications-grid">
+                    <div class="qualification-item">
+                        <h4>Pendidikan</h4>
+                        <p><strong>Sijil Kemahiran Malaysia Perkhidmatan Rangkaian Komputer</strong></p>
+                        <p>Kolej Vokasional Kudat</p>
+                        <p class="company">2023 – 2025</p>
+                        <p>Fokus: Fokus Kepada Perkhidmatan Rangkaian Dan Lebih Kepada Sistem Komputer, Dan Fokus Terhadap Penyelenggeraan</p>
+                    </div>
+                    <div class="qualification-item">
+                        <h4>Pengalaman & Aktiviti</h4>
+                        <ul>
+                            <li><strong>Bug Bounty Program</strong> – BugCrowd & HackerOne</li>
+                            <li><strong>Pemprograman</strong> – Pembangunan Laman Web</li>
+                            <li><strong>Penyelenggeraan & PC Custom Builder</strong> – Mempunyai pengalaman dalam penyelenggeraan PC & membina custom PC</li>
+                            <li><strong>IT Support Technician (Freelance)</strong> – Menyelesaikan masalah komputer & rangkaian</li>
+                            <li><strong>Network Troubleshooting</strong> – Setup router, DNS, WiFi & LAN</li>
+                            <li><strong>Cybersecurity Testing</strong> – Ujian asas keselamatan aplikasi web</li>
+                            <li><strong>Web Development Projects</strong> – Membangun website menggunakan PHP, HTML, CSS, JS</li>
+                            <li><strong>Database Setup & Management</strong> – Pengurusan asas MySQL</li>
+                            <li><strong>System Optimization</strong> – Format, install OS, dan optimize prestasi sistem</li>
+                            <li><strong>Technical Documentation</strong> – Menyediakan laporan troubleshooting</li>
+                        </ul>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('a[href$=".html"]').forEach(link => {
+                link.addEventListener("click", function (e) {
+                    const href = this.getAttribute("href");
+                    const currentPage = window.location.pathname.split("/").pop();
+                    if (href !== currentPage && href.endsWith(".html")) {
+                        e.preventDefault();
+                        document.body.classList.add("page-leaving");
+                        setTimeout(() => { window.location.href = href; }, 420);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
